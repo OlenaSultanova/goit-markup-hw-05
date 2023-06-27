@@ -88,10 +88,11 @@ img {
 
 .site-nav .link {
   position: relative;
-
+  color: var(--pressed-state);
   display: block;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color 250ms var(--timing-function);
 }
 
 .list {
@@ -108,10 +109,6 @@ img {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
-
-  transition: var(--dark);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
 }
 
 .current-page::after {
@@ -120,7 +117,7 @@ img {
 
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 
   opacity: 1;
 
@@ -158,9 +155,7 @@ address .link {
   color: var(--text);
   line-height: 1.5;
   letter-spacing: 0.02em;
-  transition: var(--text);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: color 250ms var(--timing-function);
 }
 
 address .link:focus,
@@ -225,9 +220,7 @@ address .link:hover {
   margin-left: auto;
   margin-right: auto;
 
-  transition: var(--primary-brand);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .button:hover,
@@ -476,9 +469,8 @@ address .link:hover {
   border: 1px solid var(--customers-icon);
   padding: 16px 32px;
 
-  transition: var(--customers-icon);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: border-color 250ms var(--timing-function),
+    color 250ms var(--timing-function);
 }
 
 .customers-link:hover,
@@ -489,9 +481,6 @@ address .link:hover {
 
 .customers-icon {
   fill: currentColor;
-  transition: var(--customers-icon);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
 }
 
 .customers-icon:hover,
@@ -567,9 +556,7 @@ address .link:hover {
   border-radius: 50%;
   background-color: var(--primary-brand);
 
-  transition-property: var(--primary-brand);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .footer-socialmedia-link:focus,
@@ -605,11 +592,10 @@ address .link:hover {
   border-radius: 4px;
   padding: 12px 24px;
 
-  transition: var(--white-background), var(--light),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08),
-    0px 3px 1px 0px rgba(0, 0, 0, 0.1);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    border-color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .portfolio-filter {
@@ -667,22 +653,19 @@ address .link:hover {
 .portfolio .link {
   display: block;
 
-  transition: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
-    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
-    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: box-shadow 250ms var(--timing-function);
 }
 
 .portfolio .link:hover,
 .portfolio .link:focus {
+  transform: translateY(0%);
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio .link:hover .overlaytext-bg,
-.portfolio .link:focus .overlaytext-bg {
+.portfolio .link:hover .overlaytext,
+.portfolio .link:focus .overlaytext {
   transform: translateX(0);
 }
 
@@ -710,25 +693,21 @@ address .link:hover {
   overflow: hidden;
 }
 
-.overlaytext-bg {
+.overlaytext {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
 
-  background-color: var(--primary-brand);
   padding: 40px 32px;
+  background-color: var(--primary-brand);
+  color: var(--light);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 
   transform: translateY(100%);
   transition: transform 250ms var(--timing-function);
-}
-
-.overlaytext {
-  color: var(--light);
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
 }
 
 /* modal */
@@ -743,7 +722,12 @@ address .link:hover {
 
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+  width: 100%;
+  height: 100%;
+  transition: opacity 250ms var(--timing-function),
+    visibility 250ms var(--timing-function);
 }
 
 .modal {
@@ -752,27 +736,51 @@ address .link:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 
+  display: flex;
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   padding: 24px 24px;
   border-radius: 4px;
   background-color: var(--modal-background);
-  display: flex;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms var(--timing-function);
 }
 
 .close-modal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
-  padding: 8px;
+  padding: 0px;
   margin-right: 0;
   margin-left: auto;
   cursor: pointer;
-  border-radius: 24px;
+  border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--accent);
-  justify-content: center;
+
+  transition: background-color 250ms var(--timing-function),
+    border 250ms var(--timing-function);
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  background-color: var(--pressed-state);
+  border: none;
 }
 
 .close-black {
-  fill: var(--dark);
+  fill: currentColor;
+  transition: fill 250ms var(--timing-function);
+}
+
+.close-black:hover,
+.close-black:focus {
+  fill: var(--white-background);
 }
