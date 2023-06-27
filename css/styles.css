@@ -130,12 +130,6 @@ img {
   background: var(--pressed-state);
 }
 
-.current-page:active:after,
-.current-page:hover:after,
-.current-page:focus:after {
-  opacity: 1;
-}
-
 .list .link:focus,
 .list .link:hover {
   color: var(--pressed-state);
