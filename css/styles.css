@@ -99,7 +99,7 @@ img {
 }
 
 .site-nav .current-page {
-  color: var(--primary-brand);
+  color: var(--pressed-state);
 }
 
 /*  */
