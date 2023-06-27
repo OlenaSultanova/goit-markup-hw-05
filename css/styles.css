@@ -80,6 +80,7 @@ img {
 
 .site-nav .item {
   margin-right: 40px;
+  color: var(--pressed-state);
 }
 
 .site-nav .item:last-child {
@@ -407,9 +408,7 @@ address .link:hover {
   border-radius: 50%;
   background-color: var(--primary-brand);
 
-  transition: var(--primary-brand);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .socialmedia-link:hover,
@@ -758,11 +757,10 @@ address .link:hover {
   width: 24px;
   height: 24px;
   padding: 0px;
-  margin-right: 0;
-  margin-left: auto;
   cursor: pointer;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--white-background);
   background: var(--accent);
 
   transition: background-color 250ms var(--timing-function),
@@ -775,8 +773,12 @@ address .link:hover {
   border: none;
 }
 
+.close-modal:hover .close-black,
+.close-modal:focus .close-black {
+  fill: var(--white-background);
+}
+
 .close-black {
-  fill: currentColor;
   transition: fill 250ms var(--timing-function);
 }
 
