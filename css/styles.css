@@ -114,27 +114,26 @@ img {
   transition-timing-function: var(--timing-function);
 }
 
-.site-nav .link::after {
+.current-page::after {
   content: "";
+  display: block;
 
   position: absolute;
   left: 0;
   bottom: 0;
 
-  display: block;
+  opacity: 1;
+
   width: 100%;
   height: 4px;
   border-radius: 2px;
   background: var(--pressed-state);
-
-  transform: scaleX(0);
-  transition: transform 250ms var(--timing-function), var(--pressed-state);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
 }
 
-.site-nav .link:hover:after {
-  transform: scaleX(1);
+.current-page:active:after,
+.current-page:hover:after,
+.current-page:focus:after {
+  opacity: 1;
 }
 
 .list .link:focus,
@@ -710,6 +709,7 @@ address .link:hover {
   padding: 0;
 }
 
+/* blueoverlay */
 .thumb {
   position: relative;
   width: 360px;
@@ -737,6 +737,7 @@ address .link:hover {
   letter-spacing: 0.02em;
 }
 
+/* modal */
 .backdrop {
   position: fixed;
   top: 0;
@@ -762,6 +763,7 @@ address .link:hover {
   padding: 24px 24px;
   border-radius: 4px;
   background-color: var(--modal-background);
+  display: flex;
 }
 
 .close-modal {
@@ -774,13 +776,9 @@ address .link:hover {
   border-radius: 24px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--accent);
-
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .close-black {
-  display: flex;
   fill: var(--dark);
 }
