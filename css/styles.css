@@ -93,6 +93,11 @@ img {
   border-radius: 2px;
   background: var(--pressed-state);
 }
+
+.current-page {
+  color: var(--primary-brand);
+}
+
 /*  */
 
 .logo {
