@@ -163,7 +163,7 @@ img {
 
 address .link {
   text-decoration: none;
-  color: var(--text);
+  color: var(--subtle-text);
   line-height: 1.5;
   letter-spacing: 0.02em;
   transition: color 250ms var(--timing-function);
@@ -544,6 +544,7 @@ address .link:hover {
   display: flex;
   list-style: none;
   padding: 0;
+  margin: 0;
   gap: 16px;
 }
 
